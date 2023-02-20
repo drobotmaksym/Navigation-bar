@@ -6,6 +6,7 @@
 
 * {
   margin: 0;
+  padding: 0;
 }
 
 html, body {
@@ -15,7 +16,6 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Poppins', sans-serif;
 }
 
 img, picture, video, canvas, svg {
@@ -29,4 +29,100 @@ input, button, textarea, select {
 
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+}
+
+/* custom properties */
+
+:root {
+  --clr-primary-100: #ffffff;
+  --clr-primary-400: #2bfe50;
+  --clr-secondary-800: #212327;
+
+  --fw-regular: 300;
+}
+
+/* utility classes */
+
+.flex-group {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* styling */
+
+/* sets common properties and aligns navigation bar to the center of the page */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: var(--fw-regular);
+  font-size: 1rem;
+  color: var(--clr-secondary-800);
+  background: var(--clr-secondary-800);
+
+  display: grid;
+  place-content: center;
+}
+
+/* navigation bar itself, its size is determined by the navigation list inside */
+.nav__bar {
+  background: var(--clr-primary-100);
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+.nav__list {
+  list-style: none;
+
+  height: 6rem;
+  
+  position: relative;
+}
+
+.nav__item {
+  width: 6rem;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav__indicator {
+  background: var(--clr-primary-400);
+  border-radius: 50%;
+
+  width: 6em;
+  height: 6em;
+
+  position: absolute;
+  transform: translateY(-50%);
+  left: 0;
+}
+
+.nav__text {
+  opacity: 0; 
+
+  position: absolute;
+}
+
+.nav__icon {
+  font-size: 1.5rem;
+  transition: transform 0.5s;
+}
+
+.nav__text {
+  transition: transform 0.5s;
+
+  transform: translateY(30px);
+}
+
+.nav__item[active] > .nav__icon {
+  transform: translateY(-44px);
+}
+
+.nav__item[active] > .nav__text {
+  opacity: 1; 
+
+  transform: translateY(20px);
 }

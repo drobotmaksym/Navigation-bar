@@ -19,18 +19,39 @@
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 </head>
 <body>
-  <i class="fi fi-rr-home"></i>
-  <i class="fi fi-rr-shopping-cart"></i>
-  <i class="fi fi-rr-envelope"></i>
-  <i class="fi fi-rr-user"></i>
-  <i class="fi fi-rr-settings"></i>
+  <header>
+    <nav class="nav__bar">
+      <ul class="nav__list flex-group">
+        <li class="nav__item" active>
+          <i class="nav__icon fi fi-rr-home"></i>
+          <span class="nav__text">Home</span>
+        </li>
 
-  Home
-  Cart
-  Messages
-  Account
-  Settings
-  
+        <li class="nav__item">
+          <i class="nav__icon fi fi-rr-shopping-cart"></i>
+          <span class="nav__text">Cart</span>
+        </li>
+
+        <li class="nav__item">
+          <i class="nav__icon fi fi-rr-envelope"></i>
+          <span class="nav__text">Messages</span>
+        </li>
+
+        <li class="nav__item">
+          <i class="nav__icon fi fi-rr-user"></i>
+          <span class="nav__text">Account</span>
+        </li>
+
+        <li class="nav__item">
+          <i class="nav__icon fi fi-rr-settings"></i>
+          <span class="nav__text">Settings</span>
+        </li>
+
+        <div class="nav__indicator"></div>
+      </ul>
+    </nav>
+  </header>
+
   <script src="main.js"></script>
 </body>
 </html>
