@@ -39,6 +39,8 @@ p, h1, h2, h3, h4, h5, h6 {
   --clr-secondary-800: #212327;
 
   --fw-regular: 300;
+
+  --nav-item-size: 6em;
 }
 
 /* utility classes */
@@ -50,7 +52,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* styling */
 
-/* sets common properties and aligns navigation bar to the center of the page */
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: var(--fw-regular);
@@ -62,7 +63,6 @@ body {
   place-content: center;
 }
 
-/* navigation bar itself, its size is determined by the navigation list inside */
 .nav__bar {
   background: var(--clr-primary-100);
   border-radius: 10px;
@@ -72,13 +72,13 @@ body {
 .nav__list {
   list-style: none;
 
-  height: 6rem;
+  height: var(--nav-item-size);
   
   position: relative;
 }
 
 .nav__item {
-  width: 6rem;
+  width: var(--nav-item-size);
   z-index: 1;
 
   display: flex;
@@ -91,19 +91,21 @@ body {
 .nav__indicator {
   background: var(--clr-primary-400);
   border-radius: 50%;
+  transition: left 0.5s;
 
-  width: 6em;
-  height: 6em;
+  width: var(--nav-item-size);
+  height: var(--nav-item-size);
 
   position: absolute;
   transform: translateY(-50%);
-  left: 0;
 }
 
 .nav__text {
   opacity: 0; 
+  transition: transform 0.5s;
 
   position: absolute;
+  transform: translateY(30px);
 }
 
 .nav__icon {
@@ -111,18 +113,32 @@ body {
   transition: transform 0.5s;
 }
 
-.nav__text {
-  transition: transform 0.5s;
-
-  transform: translateY(30px);
-}
-
-.nav__item[active] > .nav__icon {
+.nav__item[active] .nav__icon {
   transform: translateY(-44px);
 }
 
-.nav__item[active] > .nav__text {
+.nav__item[active] .nav__text {
   opacity: 1; 
 
   transform: translateY(20px);
+}
+
+.nav__item[active]:nth-child(1) ~ .nav__indicator{
+  left: 0;
+}
+
+.nav__item[active]:nth-child(2) ~ .nav__indicator{
+  left: calc(var(--nav-item-size) * 1);
+}
+
+.nav__item[active]:nth-child(3) ~ .nav__indicator{
+  left: calc(var(--nav-item-size) * 2);
+}
+
+.nav__item[active]:nth-child(4) ~ .nav__indicator{
+  left: calc(var(--nav-item-size) * 3);
+}
+
+.nav__item[active]:nth-child(5) ~ .nav__indicator{
+  left: calc(var(--nav-item-size) * 4);
 }
